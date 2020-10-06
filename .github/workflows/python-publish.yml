@@ -41,4 +41,4 @@ jobs:
       - name: upload wheel
         run: |
           pip install twine
-          twine upload dist/*
+          python -m twine upload dist/*
