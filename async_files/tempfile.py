@@ -1,5 +1,5 @@
 import tempfile
-from typing import Callable, Awaitable
+from typing import Awaitable, Callable
 
 from . import FileIO, async_wraps
 
