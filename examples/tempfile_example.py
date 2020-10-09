@@ -1,5 +1,5 @@
-from async_files.tempfile import TemporaryFile
 from .utils import run_coroutine
+from async_files.tempfile import TemporaryFile
 
 
 async def main():
