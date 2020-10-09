@@ -1,7 +1,9 @@
 import tempfile
-from typing import Awaitable, Callable
+from typing import Awaitable
+from typing import Callable
 
-from . import FileIO, async_wraps
+from . import async_wraps
+from . import FileIO
 
 
 class TemporaryFile(FileIO):
