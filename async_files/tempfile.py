@@ -2,8 +2,8 @@ import tempfile
 from typing import Awaitable
 from typing import Callable
 
-from . import async_wraps
-from . import FileIO
+from .fileio import FileIO
+from .utils import async_wraps
 
 
 class TemporaryFile(FileIO):
