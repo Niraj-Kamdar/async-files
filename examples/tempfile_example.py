@@ -1,11 +1,5 @@
-from tempfile import TemporaryFile as _TemporaryFile
-
-from async_files import FileIO
+from async_files.tempfile import TemporaryFile
 from .utils import run_coroutine
-
-
-class TemporaryFile(FileIO):
-    OPEN = _TemporaryFile
 
 
 async def main():
