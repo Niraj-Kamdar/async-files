@@ -1,4 +1,11 @@
-from typing import Dict, List, Callable, Awaitable, Union, Any, IO, ClassVar
+from typing import Any
+from typing import Awaitable
+from typing import Callable
+from typing import ClassVar
+from typing import Dict
+from typing import IO
+from typing import List
+from typing import Union
 
 from async_files.utils import async_wraps
 
@@ -80,23 +87,15 @@ class FileObj:
 
     def __init__(self, fobj: IO, mode: str):
         if "b" in mode:
-            async_attrs = (
-                self.__class__.CONFIG["common_async_attrs"]
-                + self.__class__.CONFIG["bytes_async_attrs"]
-            )
-            sync_attrs = (
-                self.__class__.CONFIG["common_sync_attrs"]
-                + self.__class__.CONFIG["bytes_sync_attrs"]
-            )
+            async_attrs = (self.__class__.CONFIG["common_async_attrs"] +
+                           self.__class__.CONFIG["bytes_async_attrs"])
+            sync_attrs = (self.__class__.CONFIG["common_sync_attrs"] +
+                          self.__class__.CONFIG["bytes_sync_attrs"])
         else:
-            async_attrs = (
-                self.__class__.CONFIG["common_async_attrs"]
-                + self.__class__.CONFIG["strings_async_attrs"]
-            )
-            sync_attrs = (
-                self.__class__.CONFIG["common_sync_attrs"]
-                + self.__class__.CONFIG["strings_sync_attrs"]
-            )
+            async_attrs = (self.__class__.CONFIG["common_async_attrs"] +
+                           self.__class__.CONFIG["strings_async_attrs"])
+            sync_attrs = (self.__class__.CONFIG["common_sync_attrs"] +
+                          self.__class__.CONFIG["strings_sync_attrs"])
 
         for attr in async_attrs:
             if hasattr(fobj, attr):

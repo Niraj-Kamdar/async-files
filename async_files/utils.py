@@ -1,5 +1,6 @@
 import asyncio
-from functools import wraps, partial
+from functools import partial
+from functools import wraps
 
 
 def async_wraps(func):

@@ -1,5 +1,6 @@
 import gzip
-from typing import Awaitable, Callable
+from typing import Awaitable
+from typing import Callable
 
 from .fileio import FileIO
 from .utils import async_wraps
