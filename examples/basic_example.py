@@ -8,7 +8,7 @@ async def main():
         s = await f.read()
         print(s)
         await f.seek(0)
-        print("#"*50)
+        print("#" * 50)
         async for line in f:
             print(line, end="")
 

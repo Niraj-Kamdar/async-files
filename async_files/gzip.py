@@ -1,9 +1,8 @@
 import gzip
-from typing import Awaitable
-from typing import Callable
+from typing import Awaitable, Callable
 
-from . import async_wraps
-from . import FileIO
+from .fileio import FileIO
+from .utils import async_wraps
 
 
 class open(FileIO):
