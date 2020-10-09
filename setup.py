@@ -8,7 +8,7 @@ with open(os.path.join(this_directory, "README.md")) as f:
 
 setup(
     name="async-files",
-    version="0.1",
+    version="0.2",
     description="Async Files",
     long_description=long_description,
     long_description_content_type="text/markdown",
