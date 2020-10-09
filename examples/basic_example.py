@@ -1,6 +1,5 @@
-from async_files import FileIO
-
 from .utils import run_coroutine
+from async_files import FileIO
 
 
 async def main():
