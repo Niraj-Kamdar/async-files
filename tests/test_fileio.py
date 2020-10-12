@@ -91,7 +91,7 @@ class TestCRUD(TempDirTest):
             expected_lines = ["Hello\n", "world!"]
             # Iterate lines
             await f.seek(0)
-            lines = [line for line in f]
+            lines = [line async for line in f]
             assert lines == expected_lines
 
             # make sure readlines are same as expected_lines
