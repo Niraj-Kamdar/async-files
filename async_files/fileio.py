@@ -15,6 +15,7 @@ class FileIOMeta(type):
 
 class FileIO(metaclass=FileIOMeta):
     OPEN = open
+    FILEOBJ = FileObj
     _file: FileObj
 
     def __init__(self, *args, **kwargs):
@@ -30,7 +31,7 @@ class FileIO(metaclass=FileIOMeta):
 
     async def open(self):
         file = await self.__class__.OPEN(**self.bound_args.arguments)
-        self._file = FileObj(file, self.bound_args.arguments["mode"])
+        self._file = self.__class__.FILEOBJ(file, self.bound_args.arguments["mode"])
         return self._file
 
     async def __aenter__(self):
