@@ -6,7 +6,8 @@ import pytest
 
 from async_files import FileIO
 from async_files.fileobj import FileObj
-from tests.utils import TempDirTest, get_event_loop
+from tests.utils import get_event_loop
+from tests.utils import TempDirTest
 
 
 @pytest.fixture
@@ -15,7 +16,6 @@ def event_loop():
 
 
 class TestFileIO(TempDirTest):
-
     def setup_method(self):
         self.test_read_file = os.path.join(self.tempdir, "test_read_file")
         with open(self.test_read_file, "w") as f:
@@ -31,30 +31,34 @@ class TestFileIO(TempDirTest):
             assert isinstance(f, FileObj)
 
             async_attrs = [
-                'close',
-                'flush',
-                'isatty',
-                'read',
-                'readline',
-                'readlines',
-                'reconfigure',
-                'seek',
-                'tell',
-                'truncate',
-                'write',
-                'writelines'
+                "close",
+                "flush",
+                "isatty",
+                "read",
+                "readline",
+                "readlines",
+                "reconfigure",
+                "seek",
+                "tell",
+                "truncate",
+                "write",
+                "writelines",
             ]
             for attr in async_attrs:
                 coro = getattr(f, attr)
                 if not coro:
-                    pytest.fail(msg=f"{attr} haven't been attached to FileObj!")
+                    pytest.fail(
+                        msg=f"{attr} haven't been attached to FileObj!")
                 # Make sure all IO methods are converted into coroutines.
                 # Only coroutine or an awaitable can be converted to future.
                 try:
                     future = asyncio.ensure_future(coro())
                     future.cancel()
                 except TypeError:
-                    pytest.fail(msg=f"{attr} exists but haven't been converted to coroutine!")
+                    pytest.fail(
+                        msg=
+                        f"{attr} exists but haven't been converted to coroutine!"
+                    )
 
     @pytest.mark.asyncio
     async def test_basics(self):
@@ -63,7 +67,6 @@ class TestFileIO(TempDirTest):
 
 
 class TestCRUD(TempDirTest):
-
     def setup_method(self):
         self.test_read_file = os.path.join(self.tempdir, "test_read_file")
         with open(self.test_read_file, "w") as f:

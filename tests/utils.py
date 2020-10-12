@@ -23,11 +23,7 @@ def get_event_loop():
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
     if sys.platform.startswith("win") and isinstance(
-        loop, asyncio.SelectorEventLoop
-    ):
+            loop, asyncio.SelectorEventLoop):
         loop = asyncio.ProactorEventLoop()
         asyncio.set_event_loop(loop)
     return loop
-
-
-
