@@ -2,7 +2,7 @@ import gzip
 from typing import Awaitable, Callable
 
 from .fileio import FileIO
-from .fileobj import FileObj, DEFAULT_CONFIG
+from .fileobj import DEFAULT_CONFIG, FileObj
 from .utils import async_wraps
 
 GZIP_CONFIG = DEFAULT_CONFIG
