@@ -28,6 +28,3 @@ def get_event_loop():
         loop = asyncio.ProactorEventLoop()
         asyncio.set_event_loop(loop)
     return loop
-
-
-
