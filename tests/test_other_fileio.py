@@ -9,7 +9,12 @@ from async_files.tempfile import mkstemp
 from async_files.tempfile import NamedTemporaryFile
 from async_files.tempfile import SpooledTemporaryFile
 from async_files.tempfile import TemporaryFile
+from tests.utils import get_event_loop
 
+
+@pytest.fixture
+def event_loop():
+    yield get_event_loop()
 
 class TestBasic:
     @pytest.mark.parametrize(
