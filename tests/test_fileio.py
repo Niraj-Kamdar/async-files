@@ -100,3 +100,12 @@ class TestCRUD(TempDirTest):
             # make sure readlines are same as expected_lines
             await f.seek(0)
             assert expected_lines == await f.readlines()
+
+    @pytest.mark.asyncio
+    async def test_write(self):
+        test_write_file = os.path.join(self.tempdir, "test_write_file")
+        async with FileIO(test_write_file, "w") as f:
+            await f.write("Hello\n")
+            await f.writelines(["World\n", "This is amazing!"])
+        with open(test_write_file, "r") as f:
+            assert f.read() == "Hello\nWorld\nThis is amazing!"
