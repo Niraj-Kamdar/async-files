@@ -5,12 +5,8 @@ import tempfile
 import pytest
 
 from async_files import gzip as agzip
-from async_files.tempfile import (
-    TemporaryFile,
-    NamedTemporaryFile,
-    SpooledTemporaryFile,
-    mkstemp,
-)
+from async_files.tempfile import (NamedTemporaryFile, SpooledTemporaryFile,
+                                  TemporaryFile, mkstemp)
 
 
 class TestBasic:
