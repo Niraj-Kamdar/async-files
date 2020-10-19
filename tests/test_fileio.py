@@ -56,8 +56,7 @@ class TestFileIO(TempDirTest):
                     future.cancel()
                 except TypeError:
                     pytest.fail(
-                        msg=
-                        f"{attr} exists but haven't been converted to coroutine!"
+                        msg=f"{attr} exists but haven't been converted to coroutine!"
                     )
 
     @pytest.mark.asyncio
