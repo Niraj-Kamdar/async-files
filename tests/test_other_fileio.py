@@ -5,10 +5,8 @@ import tempfile
 import pytest
 
 from async_files import gzip as agzip
-from async_files.tempfile import mkstemp
-from async_files.tempfile import NamedTemporaryFile
-from async_files.tempfile import SpooledTemporaryFile
-from async_files.tempfile import TemporaryFile
+from async_files.tempfile import (NamedTemporaryFile, SpooledTemporaryFile,
+                                  TemporaryFile, mkstemp)
 from tests.utils import get_event_loop
 
 
