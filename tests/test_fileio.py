@@ -47,8 +47,7 @@ class TestFileIO(TempDirTest):
             for attr in async_attrs:
                 coro = getattr(f, attr)
                 if not coro:
-                    pytest.fail(
-                        msg=f"{attr} haven't been attached to FileObj!")
+                    pytest.fail(msg=f"{attr} haven't been attached to FileObj!")
                 # Make sure all IO methods are converted into coroutines.
                 # Only coroutine or an awaitable can be converted to future.
                 try:
