@@ -37,7 +37,7 @@ class TestFileIO(TempDirTest):
                 "read",
                 "readline",
                 "readlines",
-                "reconfigure",
+                # "reconfigure",
                 "seek",
                 "tell",
                 "truncate",
