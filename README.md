@@ -1,6 +1,6 @@
 # async-files
 ![Test Runner](https://github.com/Niraj-Kamdar/async-files/workflows/Test%20Runner/badge.svg)
-[![codecov](https://codecov.io/gh/Niraj-Kamdar/async-files/branch/main/graph/badge.svg?token=cyY0uU5JB5)](undefined)
+[![codecov](https://codecov.io/gh/Niraj-Kamdar/async-files/branch/main/graph/badge.svg?token=cyY0uU5JB5)](https://codecov.io/gh/Niraj-Kamdar/async-files/branch/main)
 [![CodeFactor](https://www.codefactor.io/repository/github/niraj-kamdar/async-files/badge)](https://www.codefactor.io/repository/github/niraj-kamdar/async-files)
 
 async-files is a fast, lightweight, and extensible asyncio file library, written in pure python and inspired by [aiofiles](https://github.com/Tinche/aiofiles). This works just like aiofiles which delegates file IO operations to a separate thread pool. Although, async-files have been completely re-written from scratch to use modern `async...await...` syntax and with extensibility and flexibility in mind.
