@@ -30,4 +30,5 @@ class TestBasic:
         ),
     )
     def test_signature(self, actual_class, expected_class):
-        assert inspect.signature(actual_class) == inspect.signature(expected_class)
+        assert inspect.signature(actual_class) == inspect.signature(
+            expected_class)
