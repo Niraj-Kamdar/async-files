@@ -5,11 +5,15 @@ import tempfile
 import pytest
 
 from async_files import gzip as agzip
-from async_files.tempfile import TemporaryFile, NamedTemporaryFile, SpooledTemporaryFile, mkstemp
+from async_files.tempfile import (
+    TemporaryFile,
+    NamedTemporaryFile,
+    SpooledTemporaryFile,
+    mkstemp,
+)
 
 
 class TestBasic:
-
     @pytest.mark.parametrize(
         "actual_class, expected_class",
         (
@@ -18,9 +22,8 @@ class TestBasic:
             (SpooledTemporaryFile, tempfile.SpooledTemporaryFile),
             (mkstemp, tempfile.mkstemp),
             (agzip.GzipFile, gzip.GzipFile),
-            (agzip.open, gzip.open)
-        )
+            (agzip.open, gzip.open),
+        ),
     )
     def test_signature(self, actual_class, expected_class):
-        assert inspect.signature(
-            actual_class) == inspect.signature(expected_class)
+        assert inspect.signature(actual_class) == inspect.signature(expected_class)
