@@ -11,15 +11,16 @@ from async_files.tempfile import TemporaryFile, NamedTemporaryFile, SpooledTempo
 class TestBasic:
 
     @pytest.mark.parametrize(
-            "actual_class, expected_class",
-            (
-                    (TemporaryFile, tempfile.TemporaryFile),
-                    (NamedTemporaryFile, tempfile.NamedTemporaryFile),
-                    (SpooledTemporaryFile, tempfile.SpooledTemporaryFile),
-                    (mkstemp, tempfile.mkstemp),
-                    (agzip.GzipFile, gzip.GzipFile),
-                    (agzip.open, gzip.open)
-            )
+        "actual_class, expected_class",
+        (
+            (TemporaryFile, tempfile.TemporaryFile),
+            (NamedTemporaryFile, tempfile.NamedTemporaryFile),
+            (SpooledTemporaryFile, tempfile.SpooledTemporaryFile),
+            (mkstemp, tempfile.mkstemp),
+            (agzip.GzipFile, gzip.GzipFile),
+            (agzip.open, gzip.open)
+        )
     )
     def test_signature(self, actual_class, expected_class):
-        assert inspect.signature(actual_class) == inspect.signature(expected_class)
+        assert inspect.signature(
+            actual_class) == inspect.signature(expected_class)
