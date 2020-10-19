@@ -16,6 +16,7 @@ from tests.utils import get_event_loop
 def event_loop():
     yield get_event_loop()
 
+
 class TestBasic:
     @pytest.mark.parametrize(
         "actual_class, expected_class",
