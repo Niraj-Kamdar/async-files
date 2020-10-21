@@ -109,8 +109,7 @@ class FileObj:
         line = await self.readline()
         if line:
             return line
-        else:
-            raise StopAsyncIteration
+        raise StopAsyncIteration
 
     def __aiter__(self):
         return self
