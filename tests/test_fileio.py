@@ -126,7 +126,7 @@ class TestCRUD(TempDirTest):
         async with FileIO(self.test_read_file, "rb") as f:
             # Test Read whole file
             lines = await f.read()
-            if sys.platform .startswith("win"):
+            if sys.platform.startswith("win"):
                 assert lines == b"Hello\r\nworld!"
             else:
                 assert lines == b"Hello\nworld!"
