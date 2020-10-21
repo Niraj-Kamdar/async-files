@@ -7,8 +7,7 @@ import pytest
 
 from async_files import FileIO
 from async_files.fileobj import FileObj
-from tests.utils import get_event_loop
-from tests.utils import TempDirTest
+from tests.utils import TempDirTest, get_event_loop
 
 
 @pytest.fixture
