@@ -1,4 +1,11 @@
-from typing import IO, Any, Awaitable, Callable, ClassVar, Dict, List, Union
+from typing import Any
+from typing import Awaitable
+from typing import Callable
+from typing import ClassVar
+from typing import Dict
+from typing import IO
+from typing import List
+from typing import Union
 
 from async_files.utils import async_wraps
 
