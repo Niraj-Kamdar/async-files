@@ -38,7 +38,20 @@ class TemporaryFile(FileIO):
     OPEN = _TemporaryFile
 ```
 
-You can do same for any IO classes like `GzipFile`, `SpooledTemporaryFile`, etc.
+You can do same for any other IO classes like `gzip.GzipFile`, `zipfile.ZipFile`, etc. 
+I have added async version of tempfile and gzip modules in the `v0.2` 
+since they are commonly used modules and I will add more modules in the future releases. 
+You can use these modules just like you use standard library module, only difference is you need to await coroutine methods.
+You can request for support for new modules by [creating new issue](https://github.com/Niraj-Kamdar/async-files/issues/new).
+
+You can also create coroutine from any blocking function by using async-files's utility function `async_wraps`. For example:
+```python
+import shutil
+from async_files.utils import async_wraps
+async_rmtree = async_wraps(shutil.rmtree)
+```
+You can also use `async_wraps` as a decorator for your custom function. 
+> Note: Only use `async_wraps` if target function is IO-bound.
 
 Following are asynchronous attributes of the FileIO object.
 ```python
@@ -58,3 +71,11 @@ write: Callable[[Union[str, bytes]], Awaitable[int]]
 writelines: Callable[[List[Union[str, bytes]]], Awaitable[None]]
 ```
 Other attributes are synchronous just like standard library fileobj.
+
+## Feedback & Contributions
+Bugs and feature requests can be made via [GitHub issues](https://github.com/Niraj-Kamdar/async-files/issues/new). 
+Be aware that these issues are not private, so take care when providing output to make sure you are not disclosing security issues in other products.
+
+Pull requests are also welcome via git.
+
+The async-files uses `sourcery`, `restyled` and `code factor` bots to ensure code quality of the PR.
