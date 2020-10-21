@@ -1,6 +1,7 @@
 import asyncio
 import inspect
 import os
+import sys
 
 import pytest
 
@@ -109,3 +110,23 @@ class TestCRUD(TempDirTest):
             await f.writelines(["World\n", "This is amazing!"])
         with open(test_write_file, "r") as f:
             assert f.read() == "Hello\nWorld\nThis is amazing!"
+
+    @pytest.mark.asyncio
+    async def test_bytes_write(self):
+        test_write_file = os.path.join(self.tempdir, "test_write_file")
+        f = await FileIO(test_write_file, "wb")()
+        await f.write(b"Hello\n")
+        await f.writelines([b"World\n", b"This is amazing!"])
+        await f.close()
+        with open(test_write_file, "rb") as f:
+            assert f.read() == b"Hello\nWorld\nThis is amazing!"
+
+    @pytest.mark.asyncio
+    async def test_bytes_read(self):
+        async with FileIO(self.test_read_file, "rb") as f:
+            # Test Read whole file
+            lines = await f.read()
+            if sys.platform .startswith("win"):
+                assert lines == b"Hello\r\nworld!"
+            else:
+                assert lines == b"Hello\nworld!"
