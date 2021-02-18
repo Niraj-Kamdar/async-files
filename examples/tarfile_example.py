@@ -4,7 +4,8 @@ import tempfile
 
 from async_files import FileIO
 from async_files.fileobj import DEFAULT_CONFIG, FileObj
-from .utils import run_coroutine, ChangeDirContext
+
+from .utils import ChangeDirContext, run_coroutine
 
 TARBALL_CONFIG = DEFAULT_CONFIG
 TARBALL_CONFIG["strings_async_attrs"].extend(["add", "extract", "extractall"])
