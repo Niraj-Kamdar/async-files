@@ -23,8 +23,8 @@ class async_open(FileIO):
 
 
 async def make_tarfile_from_dir(output_filename, source_dir):
-    if not output_filename.endswith('.gz'):
-        output_filename += '.tar.gz'
+    if not output_filename.endswith(".gz"):
+        output_filename += ".tar.gz"
     async with async_open(output_filename, "w:gz") as tar:
         await tar.add(source_dir, arcname=".")
 
