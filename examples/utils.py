@@ -1,5 +1,18 @@
 import asyncio
+import os
 import sys
+
+
+class ChangeDirContext:
+    def __init__(self, destination_dir):
+        self.current_dir = os.getcwd()
+        self.destination_dir = destination_dir
+
+    def __enter__(self):
+        os.chdir(self.destination_dir)
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        os.chdir(self.current_dir)
 
 
 def get_event_loop():
