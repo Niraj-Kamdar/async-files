@@ -30,7 +30,8 @@ class FileIO(metaclass=FileIOMeta):
         return await self.open()
 
     async def open(self):
-        file = await self.__class__.OPEN(*self.bound_args.args, **self.bound_args.kwargs)
+        file = await self.__class__.OPEN(*self.bound_args.args,
+                                         **self.bound_args.kwargs)
         self._file = self.__class__.FILEOBJ(file,
                                             self.bound_args.arguments["mode"])
         return self._file
