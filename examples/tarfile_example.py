@@ -2,9 +2,11 @@ import os
 import tarfile
 import tempfile
 
+from .utils import ChangeDirContext
+from .utils import run_coroutine
 from async_files import FileIO
-from async_files.fileobj import DEFAULT_CONFIG, FileObj
-from .utils import run_coroutine, ChangeDirContext
+from async_files.fileobj import DEFAULT_CONFIG
+from async_files.fileobj import FileObj
 
 TARBALL_CONFIG = DEFAULT_CONFIG
 TARBALL_CONFIG["strings_async_attrs"].extend(["add", "extract", "extractall"])
@@ -23,8 +25,8 @@ class async_open(FileIO):
 
 
 async def make_tarfile_from_dir(output_filename, source_dir):
-    if not output_filename.endswith('.gz'):
-        output_filename += '.tar.gz'
+    if not output_filename.endswith(".gz"):
+        output_filename += ".tar.gz"
     async with async_open(output_filename, "w:gz") as tar:
         await tar.add(source_dir, arcname=".")
 
