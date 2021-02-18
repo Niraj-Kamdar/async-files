@@ -35,7 +35,8 @@ async def main():
     # create a test directory
     tempdir = tempfile.mkdtemp()
     testdir = os.path.join(tempdir, "test")
-    os.makedirs(testdir) if not os.path.isdir(testdir) else None
+    if not os.path.isdir(testdir):
+        os.makedirs(testdir)
     with open(os.path.join(testdir, "test.txt"), "w") as f:
         f.write("Hello World!")
 
